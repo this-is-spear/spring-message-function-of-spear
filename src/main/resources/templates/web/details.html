@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{page.detail}">상세</title>
+</head>
+<body>
+    <h1 th:text="#{page.detail}">상세</h1>
+    <p th:text="#{comment.greet}"></p>
+    <p th:text="#{comment.introduce(${user.userName})}"></p>
+    <p th:text="#{comment.stuyding(${user.studying})}"></p>
+    <p th:text="#{comment.project.detail}"></p>
+
+<button th:text="#{page.main}" th:onclick="|location.href='@{/main}'|">메인 페이지</button>
+</body>
+</html>
