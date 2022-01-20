@@ -1,9 +1,13 @@
 package hello.messagefunction.web;
 
 import hello.messagefunction.domain.User;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import javax.servlet.http.HttpSession;
@@ -18,24 +22,18 @@ public class ViewController {
     }
 
     @RequestMapping()
-    public String index() {
+    public String index(@RequestParam(name = "lang") String lang) {
         return "web/index";
     }
 
     @RequestMapping("/main")
-    public String main() {
+    public String main(@RequestParam(name = "lang") String lang) {
         return "web/main";
     }
 
     @RequestMapping("/details")
-    public String details() {
+    public String details(@RequestParam(name = "lang") String lang) {
         return "web/details";
-    }
-
-    @ModelAttribute
-    public void changeLocale(HttpSession session) {
-        String language = "en";
-        session.setAttribute(SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME, new Locale(language));
     }
 
 }
